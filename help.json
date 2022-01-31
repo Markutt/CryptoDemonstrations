@@ -1,0 +1,4 @@
+{
+    "vigenere": {"name":"Vigenere Cipher","path":"PrivateKeyCryptography.HistoricalCiphers.VigenereCipher"},
+    "caesar": {"name":"Caesar Cipher","path":"PrivateKeyCryptography.HistoricalCiphers.CaesarCipher"}
+}
