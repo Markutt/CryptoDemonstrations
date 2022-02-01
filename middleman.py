@@ -2,7 +2,6 @@ import json
 import socket
 import sys
 
-
 HOST = "127.0.0.1"  # using loopback address
 PORT = 65450
 # Roles that will be sent to the clients
@@ -105,4 +104,11 @@ def select_encryption():
     return encryption_scheme
 
 
+# scheme = PrivateKeyCryptography.HistoricalCiphers.VigenereCipher()
+# scheme.generate()
+# enc = scheme.encrypt(input("input:"))
+# print("enc: " + enc)
+# dec = scheme.decrypt(enc)
+# print("dec: " + dec)
+# exit()
 establish_server()

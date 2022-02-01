@@ -30,10 +30,12 @@ def establish_connection():
                 path = select_encryption(response[2:])
                 module = locate(path)
                 scheme = module()
+                scheme.generate()
 
         except socket.error:
             print("Send failed")
             sys.exit()
+
 
 def select_encryption(scheme_name):
     with open("help.json", "r") as f:
@@ -41,12 +43,6 @@ def select_encryption(scheme_name):
         for cipher in ciphers:
             if scheme_name == cipher:
                 return ciphers[cipher]["path"]
-
-
-
-
-
-
 
 
 establish_connection()
