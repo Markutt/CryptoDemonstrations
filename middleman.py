@@ -104,7 +104,7 @@ def select_encryption():
     return encryption_scheme
 
 
-# scheme = PrivateKeyCryptography.HistoricalCiphers.VigenereCipher()
+# scheme = PrivateKeyCryptography.HistoricalCiphers.SubstitutionCipher()
 # scheme.generate()
 # enc = scheme.encrypt(input("input:"))
 # print("enc: " + enc)

@@ -1,3 +1,7 @@
+import random
+import string
+
+
 class VigenereCipher:
     key = "vigenere"
 
@@ -47,8 +51,39 @@ class CaesarCipher:
 
 
 class SubstitutionCipher:
-    def encrypt(self):
-        return
+    enc_mapping = {}
+    dec_mapping = {}
+    seed = 5
 
-    def decrypt(self):
-        return
+    def generate(self):
+        self.seed = input("Please enter a seed to be used in mapping, Press enter for default:")
+        all_chars = string.printable
+        shuffled_chars = list(all_chars)
+        random.Random(self.seed).shuffle(shuffled_chars)
+        enc_mapping: dict
+        for char, s_char in zip(all_chars, shuffled_chars):
+            self.enc_mapping[char] = s_char
+            self.dec_mapping[s_char] = char
+
+        # #Uncomment this chunk if you want to see the character mappings.
+        # print("Character Mappings")
+        # for count, (a, b) in enumerate(zip(list(all_chars), shuffled_chars)):
+        #     print(f"[{a}]->[{b}]", end=" | ")
+        #     count %= 10
+        #     if count == 9:
+        #         print()
+        # print()
+
+    def encrypt(self, plaintext):
+        ciphertext = ""
+        char_list = list(plaintext)
+        for char in char_list:
+            ciphertext += self.enc_mapping[char]
+        return ciphertext
+
+    def decrypt(self, ciphertext):
+        plaintext = ""
+        char_list = list(ciphertext)
+        for char in char_list:
+            plaintext += self.dec_mapping[char]
+        return plaintext
